@@ -34,6 +34,7 @@ KEYS=sk-key1,sk-key2,sk-key3
 可选地，你还可以设置 `AUTHORIZATION_KEY` 环境变量用于访问仪表盘的身份验证。
 
 ### 2. 一键部署到 huggingface
+https://huggingface.co/spaces/hf-demo-linux/sili?duplicate=true
 
 
 
@@ -58,7 +59,7 @@ KEYS=sk-key1,sk-key2,sk-key3
 部署完成后，你可以通过 huggingface 提供的域名访问你的 API 代理。
 
 -   **仪表盘:**  访问你的 Huggingface Space 的根 URL，即可查看仪表盘。
-
+-   使用时请在客户端请求url结尾加上/handsome
 
 
 ## 许可证
