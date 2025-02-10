@@ -446,7 +446,7 @@ def index():
 
     return render_template('index.html', rpm=rpm, tpm=tpm, rpd=rpd, tpd=tpd, key_balances=key_balances) # Render template instead of jsonify
 
-@app.route('/handsome/v1/models', methods=['GET'])
+@app.route('/v1/models', methods=['GET'])
 def list_models():
     if not check_authorization(request):
         return jsonify({"error": "Unauthorized"}), 401
@@ -490,7 +490,7 @@ def list_models():
         "success": True,
         "data": detailed_models
     })
-@app.route('/handsome/v1/dashboard/billing/usage', methods=['GET'])
+@app.route('/v1/dashboard/billing/usage', methods=['GET'])
 def billing_usage():
     if not check_authorization(request):
         return jsonify({"error": "Unauthorized"}), 401
@@ -500,7 +500,7 @@ def billing_usage():
         "data": daily_usage,
         "total_usage": 0
     })
-@app.route('/handsome/v1/dashboard/billing/subscription', methods=['GET'])
+@app.route('/v1/dashboard/billing/subscription', methods=['GET'])
 def billing_subscription():
     if not check_authorization(request):
         return jsonify({"error": "Unauthorized"}), 401
@@ -529,7 +529,7 @@ def billing_subscription():
         "hard_limit_usd": total_balance,
         "system_hard_limit_usd": total_balance
     })
-@app.route('/handsome/v1/embeddings', methods=['POST'])
+@app.route('/v1/embeddings', methods=['POST'])
 def handsome_embeddings():
     if not check_authorization(request):
         return jsonify({"error": "Unauthorized"}), 401
@@ -597,7 +597,7 @@ def handsome_embeddings():
         })
     except requests.exceptions.RequestException as e:
         return jsonify({"error": str(e)}), 500
-@app.route('/handsome/v1/images/generations', methods=['POST'])
+@app.route('/v1/images/generations', methods=['POST'])
 def handsome_images_generations():
     if not check_authorization(request):
         return jsonify({"error": "Unauthorized"}), 401
@@ -688,7 +688,7 @@ def handsome_images_generations():
             return jsonify({"error": str(e)}), 500
     else:
         return jsonify({"error": "Unsupported model"}), 400
-@app.route('/handsome/v1/chat/completions', methods=['POST'])
+@app.route('/v1/chat/completions', methods=['POST'])
 def handsome_chat_completions():
     if not check_authorization(request):
         return jsonify({"error": "Unauthorized"}), 401
